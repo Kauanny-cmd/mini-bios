@@ -10,20 +10,20 @@
         <script src="../js/getUserPost.js"></script>
     </head>
 
-    <body class="container bg-dark text-white">
+    <body class="container bg-light text-white">
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     
-                    <a class="navbar-brand text-success" href="/">Mini Bios</a>
+                    <a class="navbar-brand text-secondary" href="/">Mini Bios</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right ">
                     {{#if (isLogged currentUser)}}
-                        <li class="nav-item active"><a href="/edit" class="nav-link text-success">Olá, {{getUsername currentUser}}</a></li>
-                        <li class="nav-item active"><a href="/logout" class="nav-link text-success">Sair</a></li>
+                        <li class="nav-item active"><a href="/edit" class="nav-link text-Secondary">Olá, {{getUsername currentUser}}</a></li>
+                        <li class="nav-item active"><a href="/logout" class="nav-link text-Secondary">Sair</a></li>
                     {{else}}
-                        <li class="nav-item active"><a href="/login" class="nav-link text-success">Entrar</a></li>
-                        <li class="nav-item active"><a href="/signup" class="nav-link text-success">Cadastre-se</a></li>
+                        <li class="nav-item active"><a href="/login" class="nav-link text-Secondary">Entrar</a></li>
+                        <li class="nav-item active"><a href="/signup" class="nav-link text-Secondary">Cadastre-se</a></li>
                     {{/if}}
                 </ul>
             </div>
@@ -31,14 +31,14 @@
         <div class="container">
             {{#if errors.length}}
                 {{#each errors}}
-                    <div class="alert alert-dark bg-dark text-white" role="alert">
+                    <div class="alert alert-info bg-info text-light" role="alert">
                         {{this}}
                     </div>
                 {{/each}}
             {{/if}}
             {{#if infos.length}}
                 {{#each infos}}
-                    <div class="alert alert-info bg-dark text-white" role="alert">
+                    <div class="alert alert-info bg-info text-light" role="alert">
                         {{this}}
                     </div>
                 {{/each}}
