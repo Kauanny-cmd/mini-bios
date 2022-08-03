@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const path = require("path");
 const session = require("express-session");
+const Handlebars = require("express-handlebars");
 
 const setUpPassport = require("./setuppassport");
 const routes = require("./routes");
@@ -16,8 +17,14 @@ setUpPassport();
 
 app.set("port", process.env.PORT || 3000);
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.engine('.hbs', Handlebars.engine({
+  layoutsDir: './views/layouts',
+  defaultLayout: 'main',
+  extname: '.hbs',
+  helpers: require("./utils/handlebars_helpers.js")
+}));
+app.set('view engine', '.hbs');
+app.set('views', './views');
 
 app.use(express.static(path.join(__dirname, "public")));
 
