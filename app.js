@@ -12,7 +12,8 @@ const setUpPassport = require("./setuppassport");
 const routes = require("./routes");
 
 const app = express();
-mongoose.connect("mongodb://localhost:27017/test");
+
+mongoose.connect(`mongodb://mongodb:mongodb@db:27017/test?authSource=admin`);
 setUpPassport();
 
 app.set("port", process.env.PORT || 3000);
